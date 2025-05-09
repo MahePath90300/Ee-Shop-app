@@ -1,0 +1,10 @@
+.category img{
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.category h4{
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    text-align: justify;
+
+}

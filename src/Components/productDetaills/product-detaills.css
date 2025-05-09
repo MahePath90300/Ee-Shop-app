@@ -1,0 +1,40 @@
+.product-details{
+    margin: 40px auto;
+    display: grid;
+    width: 1300px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    border: 2px solid rgba(0,0,0,0.8);
+}
+.details{
+    background-image: url("https://fdn.gsmarena.com/imgroot/news/25/04/vivo-t4-5g-specs/inline/-1200/gsmarena_001.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    background-blend-mode: multiply;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 7px;
+}
+
+button{
+    background-color: lightpink;
+    padding: 5px;
+}
+
+.description p{
+    font-family: 'Open Sans', 'Roboto', 'sans-serif';
+    font-size: 20px;
+    padding: 30px;
+    word-wrap: break-all;
+    color: black;
+    letter-spacing:1;
+    word-spacing:2;
+    text-align: justify;
+    hyphens: auto;
+    line-height: 1.4;
+}
+.description h2{
+    font-size: 38px;
+    font-family: 'Montserrat', 'Poppins', 'sans-serif';
+    font-weight: bold;
+    padding-top: 40px;
+}

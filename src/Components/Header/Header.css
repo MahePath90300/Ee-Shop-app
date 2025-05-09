@@ -1,0 +1,73 @@
+.container{
+    background-color: black;
+    color: white;
+    height: 80px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-content: space-evenly;
+}
+.container .logo{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 20%;
+    margin: 0px 10px;
+}
+.container .logo img{
+    background-color: black;
+}
+.container .nav-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.logo h2{
+    font-family: 'Inter', sans-serif;
+    font-size: 27px;
+    font-weight: bold;
+}
+.nav-details{
+    display: flex;
+    align-content: space-evenly;
+}
+.nav-details a{
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    margin-right: 80px;
+}
+
+.container .sign-out{
+display: flex;
+align-items: center;
+align-content: center;
+width: 15%;
+}
+.container .sign-out .hearder-button{
+    background: none;
+    outline: none;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+.sign-out button:hover{
+    background-color: red;
+}
+
+.nav-details a:hover{
+    color: blue;
+}
+.nav-details a:active{
+    color: violet;
+}
+
+.sign-out i{
+    font-size: 30px;
+    margin: 15px;
+}
