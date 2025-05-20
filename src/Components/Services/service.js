@@ -1,12 +1,5 @@
 import axios from "axios";
 
-export function getProducts(setState){
-axios.get("https://fakestoreapi.com/products").then((res)=>{
-setState(res.data)
-}).catch((error)=>{
-console.log(error)
-})
-}
 
 export function registerUserData(inputData,setMessage){
     axios.post("http://localhost:8090/api/users/signup",inputData)
@@ -21,11 +14,25 @@ export function registerUserData(inputData,setMessage){
 
 export function verifyLoginDetails(loginCredentials, setToken){
     axios.post("http://localhost:8090/api/users/signin",loginCredentials)
-    .then((res)=>{
-        console.log(res.data.tokenValue)
-    setToken(res.data)
+    .then((res)=>{      
+       setToken(res.data)
     }).catch((error)=>{
-    alert("Check credentials");
    throw Error(error)
     })
+}
+
+export function getProducts(setState){
+const getToken = localStorage.getItem("token");
+const parsedToken = JSON.parse(getToken);
+const token = parsedToken.tokenValue;
+console.log(token)
+axios.get("http://localhost:4040/api/products/getProducts", {
+  headers: {
+    Authorization: `Bearer ${token}`
+  },
+}).then((res)=>{
+setState(res.data.result)
+}).catch((error)=>{
+console.log(error)
+})
 }

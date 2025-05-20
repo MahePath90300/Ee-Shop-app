@@ -14,7 +14,7 @@ function Product({image,title,price,id}) {
                   <button className="product-details-button" onClick={()=>{
                    navigate(`/productdetails/${id}`)
                   }}>Product Details</button>
-                  <button>Add to cart</button>
+                  <button className="add-to-card-button">Add to cart</button>
                 </div>
             </div>
         </>

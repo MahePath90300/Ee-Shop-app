@@ -29,12 +29,12 @@ function Products({ bannerTitle, img }) {
         {state.length > 0 &&
           state
             .filter((filteredData) => {
-              return filteredData.category === bannerTitle;
+              return filteredData.product_category === bannerTitle;
             })
             .map((products) => {
               return (
                 <Product
-                  image={products.image}
+                  image={products.product_image}
                   title={products.title}
                   price={products.price}
                   id={products.id}

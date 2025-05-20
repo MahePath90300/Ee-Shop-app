@@ -14,6 +14,7 @@ import SignUp from './Components/Pages/SignUp/SignUp.jsx';
 import SignIn from './Components/Pages/Signin/Signin.jsx';
 import authContext from './Context/Auth.js';
 import { useContext, useState } from 'react';
+import Kids from './Components/Pages/Kids/Kids.jsx';
 
 function App() {
 // const {isUserLogedIn} = useContext(authContext);
@@ -48,6 +49,7 @@ function logOut(){
     <Route path={"/jewellary"} element={<Jewellary />}/>
     <Route path={"/electronics"} element={<Electronics />}/>
     <Route path={"/womens"} element={<Womens />}/>
+    <Route path={"/kids"} element={<Kids />}/>
     <Route path={"*"} element={<PageNotFOund />}/>
     <Route path={"/productdetails/:id"} element={<ProductDetails />}/>
     <Route path={"/addtocart"} element={<AddToCart />}/>
