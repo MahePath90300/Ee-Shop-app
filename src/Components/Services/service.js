@@ -1,5 +1,8 @@
 import axios from "axios";
 
+let getToken = localStorage.getItem("token");
+let parsedToken = JSON.parse(getToken);
+let token = parsedToken.tokenValue;
 
 export function registerUserData(inputData,setMessage){
     axios.post("http://localhost:8090/api/users/signup",inputData)
@@ -32,6 +35,19 @@ axios.get("http://localhost:4040/api/products/getProducts", {
   },
 }).then((res)=>{
 setState(res.data.result)
+}).catch((error)=>{
+console.log(error)
+})
+}
+
+export function getCartData(setState){
+  console.log(token)
+axios.get("http://localhost:6565/api/carts/getcartdata",{
+  headers:{
+    Authorization: `Bearer ${token}`
+  }
+}).then((res)=>{
+  setState(res.data.result)
 }).catch((error)=>{
 console.log(error)
 })
