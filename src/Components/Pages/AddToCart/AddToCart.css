@@ -44,3 +44,20 @@
   font-weight: bold;
   margin-top: 20px;
 }
+
+.heading{
+    font-size: 28px;
+    font-family: 'Montserrat', 'Poppins', 'sans-serif';
+    font-weight: 800;
+    padding-top: 30px; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);  
+}
+
+.no-products-section{
+    font-size: 22px;
+    font-family: 'Montserrat', 'Poppins', 'sans-serif';
+    font-weight: 600;  
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 60px;
+}

@@ -38,6 +38,7 @@ function Products({ bannerTitle, img }) {
                   title={products.title}
                   price={products.price}
                   id={products.id}
+                  product = {products}
                 />
               );
             })}
