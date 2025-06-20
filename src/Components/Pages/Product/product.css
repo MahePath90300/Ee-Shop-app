@@ -1,47 +1,68 @@
-.card{
-    width: 270px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0, 0.9);
-    padding: 10px;
-    border: 2px solid grey;
-    border-radius: 5px;
-    }
-    .card p{
-        margin-bottom: 7px;
-        font-family: 'Open Sans', 'Roboto', 'sans-serif';
-       font-size: 1rem;
-       line-height: 1.6;
-      color: #333;
-    }
+.card {
+  width: 270px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  padding: 10px;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
 
-    .card h2{
-      font-size: 18px;
-      font-family: 'Montserrat', 'Poppins', 'sans-serif';
-      font-weight: bold;
-  }
-    
-    .buttons-div .product-details-button{
-        padding-right: 20px;
-        margin-right: 5px;
-        border-radius: 5px;
-        font-family: 'Inter', 'Roboto', 'sans-serif';
-        font-weight: bold;
-        font-size: 14px;
-       letter-spacing: 0.5px;
-    }
-    .buttons-div .product-details button:hover{
-      background-color: green;
-    }
-    .buttons-div .add-to-card-button{
-    padding-right: 20px;
-        margin-right: 5px;
-        border-radius: 5px;
-        font-family: 'Inter', 'Roboto', 'sans-serif';
-        font-weight: bold;
-        font-size: 14px;
-       letter-spacing: 0.5px;
-    }
+.card p {
+  margin-bottom: 7px;
+  font-family: 'Open Sans', 'Roboto', 'sans-serif';
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
 
-    .buttons-div .add-to-card-button button:hover{
-      background-color: green;
-    }
+.card h2 {
+  font-size: 18px;
+  font-family: 'Montserrat', 'Poppins', 'sans-serif';
+  font-weight: bold;
+}
+
+.buttons-div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.buttons-div .product-details-button,
+.add-to-cart-btn,
+.remove-from-cart-btn {
+  padding: 10px 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.buttons-div .product-details-button {
+  background-color: #ffc0cb;
+  color: black;
+}
+
+.buttons-div .add-to-cart-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.buttons-div .remove-from-cart-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.buttons-div .add-to-cart-btn:hover {
+  background-color: #388e3c;
+}
+
+.buttons-div .remove-from-cart-btn:hover {
+  background-color: #d32f2f;
+}
+
+.buttons-div .product-details-button:hover {
+  background-color: #ffb6c1;
+}

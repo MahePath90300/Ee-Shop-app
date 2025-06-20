@@ -1,51 +1,67 @@
 import "./products.css";
 import Product from "../Product/product";
 import { useEffect, useState } from "react";
-import { getProducts } from "../../../Components/Services/service";
+import { getProducts, getCartData } from "../../Services/service";
 
 function Products({ bannerTitle, img }) {
-  const [state, setState] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+
+  // Fetch products
   useEffect(() => {
-    getProducts(setState);
+    getProducts(setProducts);
   }, []);
+
+  // Fetch cart
+  const fetchCart = async () => {
+    try {
+      const res = await getCartData();
+      setCartItems(res.data.result); // Adjust if response shape differs
+    } catch (err) {
+      console.error("Cart fetch error:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchCart();
+  }, []);
+
   return (
     <>
       <div className="products">
-        <div className="image-container" style={{backgroundImage:`url(${img})`,backgroundColor: 'rgba(179, 157, 157, 0.9)',backgroundBlendMode: 'multiply',backgroundSize: 'cover',}}>
-        <div className="info-container">
-          <h2>{bannerTitle} Category Products </h2>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati
-            consectetur est nisi optio rerum sit. Repudiandae perferendis autem
-            incidunt odio fugit, excepturi ipsum voluptatem, quidem voluptates
-            quae qui laboriosam sunt illum itaque quisquam ducimus blanditiis?
-            Iure id tempore, temporibus provident vero nihil quaerat? Quibusdam
-            a incidunt culpa dolorum facere voluptatum.
-          </p>
+        <div
+          className="image-container"
+          style={{
+            backgroundImage: `url(${img})`,
+            backgroundColor: "rgba(179, 157, 157, 0.9)",
+            backgroundBlendMode: "multiply",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="info-container">
+            <h2>{bannerTitle} Category Products</h2>
+            <p>
+              Browse the best picks in {bannerTitle} – hand-picked just for you.
+            </p>
+          </div>
         </div>
-        </div>
-        </div>
-      <div className="products-data">
-        {state.length > 0 &&
-          state
-            .filter((filteredData) => {
-              return filteredData.product_category === bannerTitle;
-            })
-            .map((products) => {
-              return (
-                <Product
-                  image={products.product_image}
-                  title={products.title}
-                  price={products.price}
-                  id={products.id}
-                  product = {products}
-                />
-              );
-            })}
       </div>
-    
+
+      <div className="products-data">
+        {products
+          .filter((p) => p.product_category === bannerTitle)
+          .map((product) => (
+            <Product
+              key={product.product_id}
+              product={product}
+              state={cartItems}
+              fetchCart={fetchCart}
+            />
+          ))}
+      </div>
     </>
   );
 }
 
 export default Products;
+
