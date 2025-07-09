@@ -44,8 +44,27 @@
 display: flex;
 align-items: center;
 align-content: center;
-width: 15%;
 }
+.container .cart-button-div{
+display: flex;
+align-items: center;
+align-content: center;
+}
+
+.container .profile-button{
+display: flex;
+align-items: center;
+align-content: center;
+}
+
+.container .cart-button-div .cart-button{
+    background: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
 .container .sign-out .hearder-button{
     background: none;
     outline: none;
@@ -55,6 +74,7 @@ width: 15%;
     font-weight: bold;
     border: 2px solid red;
     border-radius: 5px;
+    cursor: pointer;
 }
 .sign-out button:hover{
     background-color: red;
@@ -67,7 +87,25 @@ width: 15%;
     color: violet;
 }
 
-.sign-out i{
-    font-size: 30px;
+.container i{
+    font-size: 40px;
     margin: 15px;
+}
+
+.cart-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  line-height: 1;
 }

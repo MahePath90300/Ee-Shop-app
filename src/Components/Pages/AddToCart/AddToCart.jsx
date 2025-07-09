@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+
+import { useContext, useEffect } from "react";
 import { getCartData, removeCartData } from "../../Services/service";
+import authContext from "../../../Context/Auth";
 import "./AddToCart.css";
 import Rating from "../Rating/Rating";
 
 function AddToCart() {
-  const [cartItems, setCartItems] = useState([]);
+  const { cartItems, setCartItems } = useContext(authContext);
 
   const fetchCart = async () => {
     try {
       const res = await getCartData();
-      setCartItems(res.data.result);
+      setCartItems(res?.data?.result);
     } catch (err) {
       console.error("Error fetching cart:", err);
     }
@@ -34,7 +36,7 @@ function AddToCart() {
         <h2>Cart Details</h2>
       </div>
 
-      {cartItems.length > 0 ? (
+      {cartItems?.length > 0 ? (
         cartItems.map((item) => (
           <div key={item._id} className="cart-products">
             <div className="image-section">
@@ -70,4 +72,3 @@ function AddToCart() {
 }
 
 export default AddToCart;
-

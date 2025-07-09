@@ -15,11 +15,6 @@
     border-radius: 7px;
 }
 
-button{
-    background-color: lightpink;
-    padding: 5px;
-}
-
 .description p{
     font-family: 'Open Sans', 'Roboto', 'sans-serif';
     font-size: 20px;

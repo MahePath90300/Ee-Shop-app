@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import "./product.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useContext } from "react";
+import authContext from '../../../Context/Auth';
 const token = JSON.parse(localStorage.getItem("token"))?.tokenValue;
 
 function Product({ product, state, fetchCart }) {
   const [inCart, setInCart] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { cartItems, setCartItems } = useContext(authContext);
 
   useEffect(() => {
     const exists = state.some((item) => item.product_id === product.product_id);
@@ -21,6 +22,7 @@ function Product({ product, state, fetchCart }) {
       await axios.post("http://localhost:6565/api/carts/addCartData", product, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      setCartItems((prev) => [...prev, product]);
       setInCart(true);
       fetchCart();
        } catch (error) {
@@ -36,6 +38,9 @@ function Product({ product, state, fetchCart }) {
       await axios.delete(
         `http://localhost:6565/api/carts/removeCartData/${product.product_id}`,
         { headers: { Authorization: `Bearer ${token}` } }
+      );
+      setCartItems((prev) =>
+        prev.filter((item) => item.product_id !== product.product_id)
       );
       setInCart(false);
       fetchCart();
