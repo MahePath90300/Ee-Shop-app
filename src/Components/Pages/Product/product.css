@@ -66,3 +66,8 @@
 .buttons-div .product-details-button:hover {
   background-color: #ffb6c1;
 }
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -3,6 +3,8 @@ import "./product-details.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
+const token = JSON.parse(localStorage.getItem("token"))?.tokenValue;
+
 function ProductDetails() {
   const [product, setProduct] = useState({
     id: 0,
@@ -17,9 +19,13 @@ function ProductDetails() {
   });
   const {id} = useParams()
   function getProduct(){
-   axios.get(`https://fakestoreapi.com/products/${id}`).then((res)=>{
+    console.log("token",token);
+    console.log(id)
+   axios.get(`http://localhost:4040/api/products/productdetails/${id}`,{
+        headers: { Authorization: `Bearer ${token}` }
+      }).then((res)=>{
    console.log(res);
-   setProduct(res.data)
+   setProduct(res.data.result)
   }).catch((error)=>{
 console.log(error)
   })
@@ -36,15 +42,15 @@ getProduct(setProduct)
         <div className="details-section">
           <dl>
             <dt>Product Id</dt>
-            <dd>{product.id}</dd>
+            <dd></dd>
             <dt>Product Title</dt>
-            <dd>{product.title}</dd>
+            <dd></dd>
             <dt>Product Price</dt>
-            <dd>${product.price}</dd>
+            <dd>$</dd>
             <dt>Product Rating</dt>
-            <dd>{product.rating.rate}</dd>
+            <dd></dd>
             <dt>Product Description</dt>
-            <dd>{product.description}</dd>
+            <dd></dd>
           </dl>
           <button>Add to cart</button>
         </div>

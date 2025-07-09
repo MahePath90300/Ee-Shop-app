@@ -23,12 +23,15 @@ function Product({ product, state, fetchCart }) {
       });
       setInCart(true);
       fetchCart();
+       } catch (error) {
+    console.error("Add to Cart Error:", error);
     } finally {
       setLoading(false);
     }
   };
 
   const removeFromCart = async () => {
+    setLoading(true);
     try {
       await axios.delete(
         `http://localhost:6565/api/carts/removeCartData/${product.product_id}`,
@@ -38,7 +41,9 @@ function Product({ product, state, fetchCart }) {
       fetchCart();
     } catch (error) {
       console.error("Remove from Cart Error:", error);
-    }
+     } finally {
+    setLoading(false);
+  }
   };
 
   return (
@@ -64,7 +69,7 @@ function Product({ product, state, fetchCart }) {
           onClick={inCart ? removeFromCart : sendProductData}
           disabled={loading}
         >
-          {inCart ? "❌ Remove from Cart" : "🛒 Add to Cart"}
+          {loading? inCart ? "Removing...": "Adding...":inCart? "❌ Remove from Cart" : "🛒 Add to Cart"}
         </button>
       </div>
     </div>

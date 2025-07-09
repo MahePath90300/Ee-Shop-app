@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-function getAuthToken() {
+export function getAuthToken() {
   const tokenData = localStorage.getItem("token");
   if (!tokenData) return null;
   return JSON.parse(tokenData).tokenValue;
